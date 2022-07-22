@@ -1,0 +1,86 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Hello World",
+      "body": "This is my first post",
+      "author": {
+        "name": "Swaubhik",
+        "email": "example.com",
+        "website": "example.com",
+        "avatar": "https://i.pravatar.cc/150?img=1"
+      },
+      "tags": ["react", "angular", "vue"],
+      "date": "2018-01-01",
+      "comments": [
+        {
+          "id": 1,
+          "body": "This is my first comment",
+          "author": "swaubhik"
+        }
+      ],
+      "images": [
+        {
+          "cover": "https://picsum\\.photos/seed/[0-9]{5}/1920/1080",
+          "thumbnail": "https://via.placeholder.com/150",
+          "full": "https://via.placeholder.com/150",
+          "caption": "This is a caption"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Hello World 2",
+      "body": "This is my second post",
+      "author": {
+        "name": "Jane Doe",
+        "email": "example.com",
+        "website": "example.com",
+        "avatar": "https://i.pravatar.cc/150?img=2"
+      },
+      "tags": ["react", "angular", "vue"],
+      "date": "2018-01-01",
+      "comments": [
+        {
+          "id": 1,
+          "body": "This is my first comment",
+          "author": "Jane Doe"
+        }
+      ],
+      "images": [
+        {
+          "cover": "https://via.placeholder.com/150",
+          "thumbnail": "https://via.placeholder.com/150",
+          "full": "https://via.placeholder.com/150",
+          "caption": "This is a caption"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Hello World 3",
+      "body": "This is my third post",
+      "author": {
+        "name": "Jane Doe",
+        "email": "example.com",
+        "website": "example.com",
+        "avatar": "https://i.pravatar.cc/150?img=3"
+      },
+      "tags": ["react", "angular", "vue"],
+      "date": "2018-01-01",
+      "comments": [
+        {
+          "id": 1,
+          "body": "This is my first comment",
+          "author": "Jane Doe"
+        }
+      ],
+      "images": {
+        "cover": "https://via.placeholder.com/150",
+        "thumbnail": "https://via.placeholder.com/150",
+        "full": "https://via.placeholder.com/150",
+        "caption": "This is a caption"
+      }
+    }
+  ]
+}
