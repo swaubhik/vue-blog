@@ -1,23 +1,20 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="flex h-screen flex-col justify-between">
+      <HeaderComponent />
+      <main class="mb-auto">
+        <RouterView />
+      </main>
     </div>
-  </header>
-  <RouterView />
+  </div>
 </template>
+<script>
+import { RouterView } from "vue-router";
+import HeaderComponent from "./components/HeaderComponent.vue";
+export default {
+  components: {
+    HeaderComponent,
+    RouterView,
+  },
+};
+</script>
