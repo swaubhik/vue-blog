@@ -9,11 +9,7 @@
         <router-link to="/">VueBlog</router-link>
       </div>
       <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <router-link
-          to="https://github.com/timlrx/tailwind-nextjs-starter-blog"
-        >
-          Tailwind Vuejs Starter Blog
-        </router-link>
+        <a target="_blank" href="#"> Tailwind Vuejs Starter Blog </a>
       </div>
     </div>
   </footer>
