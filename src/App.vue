@@ -5,16 +5,19 @@
       <main class="mb-auto">
         <RouterView />
       </main>
+      <FooterComponent />
     </div>
   </div>
 </template>
 <script>
 import { RouterView } from "vue-router";
 import HeaderComponent from "./components/HeaderComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 export default {
   components: {
     HeaderComponent,
     RouterView,
+    FooterComponent,
   },
 };
 </script>

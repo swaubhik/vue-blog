@@ -1,66 +1,38 @@
 <template>
+  <!--?xml version="1.0" standalone="no"?-->
   <svg
-    version="1.1"
+    id="sw-js-blob-svg"
+    class="w-20 h-20"
+    viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    preserveAspectRatio="xMidYMid meet"
-    viewBox="344.5639097744361 330.27819548872174 111.73684210526318 91.21804511278197"
-    width="53.87"
-    height="43.61"
   >
     <defs>
-      <path
-        d="M453.3 331.28L453.3 359.85L388.64 418.5L388.64 388.42L453.3 331.28Z"
-        id="aFZf6T5ED"
-      ></path>
-      <linearGradient
-        id="gradientb2ThqnP5Op"
-        gradientUnits="userSpaceOnUse"
-        x1="420.97"
-        y1="331.28"
-        x2="420.97"
-        y2="418.5"
-      >
-        <stop style="stop-color: #06b6d4; stop-opacity: 1" offset="0%"></stop>
-        <stop style="stop-color: #67e8f9; stop-opacity: 1" offset="100%"></stop>
-      </linearGradient>
-      <path
-        d="M410.23 331.28L410.23 359.85L345.56 418.5L345.56 388.42L410.23 331.28Z"
-        id="a9fehgwfM"
-      ></path>
-      <linearGradient
-        id="gradientk1wNV9Ostb"
-        gradientUnits="userSpaceOnUse"
-        x1="377.89"
-        y1="331.28"
-        x2="377.89"
-        y2="418.5"
-      >
-        <stop style="stop-color: #06b6d4; stop-opacity: 1" offset="0%"></stop>
-        <stop style="stop-color: #67e8f9; stop-opacity: 1" offset="100%"></stop>
+      <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+        <stop id="stop1" stop-color="rgba(60, 210, 233, 1)" offset="0%"></stop>
+        <stop
+          id="stop2"
+          stop-color="rgba(60, 210, 233, 1)"
+          offset="100%"
+        ></stop>
       </linearGradient>
     </defs>
-    <g>
-      <g>
-        <use
-          xlink:href="#aFZf6T5ED"
-          opacity="1"
-          fill="url(#gradientb2ThqnP5Op)"
-        ></use>
-      </g>
-      <g>
-        <use
-          xlink:href="#a9fehgwfM"
-          opacity="1"
-          fill="url(#gradientk1wNV9Ostb)"
-        ></use>
-      </g>
-    </g>
+    <path
+      fill="url(#sw-gradient)"
+      d="M16.9,-28.1C19.5,-27.8,17.4,-18.3,17.3,-12.1C17.2,-5.9,19,-3,21.6,1.5C24.2,5.9,27.5,11.9,25.2,13.9C22.8,15.9,14.9,13.9,9.8,17.9C4.6,21.9,2.3,31.9,-0.9,33.4C-4.1,35,-8.2,28.1,-9.8,22.1C-11.4,16,-10.4,10.8,-12.2,7.2C-13.9,3.7,-18.3,1.8,-21.6,-1.9C-24.9,-5.7,-27.2,-11.3,-24.5,-13.2C-21.8,-15,-14.1,-13,-9.2,-12C-4.3,-11,-2.1,-10.9,2.5,-15.3C7.2,-19.6,14.3,-28.4,16.9,-28.1Z"
+      width="100%"
+      height="100%"
+      transform="translate(50 50)"
+      stroke-width="0"
+      style="transition: all 0.3s ease 0s"
+      stroke="url(#sw-gradient)"
+    ></path>
   </svg>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "BrandLogo",
+};
 </script>
 
 <style></style>

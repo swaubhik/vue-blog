@@ -11,7 +11,7 @@
       </p>
     </div>
     <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-      <li v-for="post in posts.slice(0, 2)" :key="post.id" className="py-12">
+      <li v-for="post in posts.slice(0, 3)" :key="post.id" className="py-12">
         <article>
           <div
             className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
