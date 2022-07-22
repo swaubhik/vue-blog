@@ -11,7 +11,7 @@
       </p>
     </div>
     <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-      <li v-for="post in postData.slice(0, 3)" :key="post.id" className="py-12">
+      <li v-for="post in posts.slice(0, 2)" :key="post.id" className="py-12">
         <article>
           <div
             className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
@@ -21,7 +21,7 @@
               <dd
                 className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
               >
-                <span>{{ post.date }}</span>
+                <time :dateTime="post.date">{{ formatDate(post.date) }}</time>
               </dd>
             </dl>
             <div className="space-y-5 xl:col-span-3">
@@ -46,7 +46,7 @@
                   </div>
                 </div>
                 <div
-                  className="prose max-w-none text-gray-500 dark:text-gray-400"
+                  className="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
                 >
                   {{ post.body }}
                 </div>
@@ -77,17 +77,21 @@
 </template>
 
 <script>
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import formatDate from "@/lib/utils/formatDate";
+
+import { storeToRefs } from "pinia";
+import { usePostStore } from "../stores/postStore";
 export default {
   setup() {
-    const postData = ref("");
-    onMounted(() => {
-      axios.get("http://localhost:3000/posts").then((res) => {
-        postData.value = res.data;
-      });
-    });
-    return { postData };
+    const { posts, loading, error } = storeToRefs(usePostStore());
+    const { fetchPosts } = usePostStore();
+    fetchPosts();
+    return {
+      formatDate,
+      posts,
+      loading,
+      error,
+    };
   },
 };
 </script>
