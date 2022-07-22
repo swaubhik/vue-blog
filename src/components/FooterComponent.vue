@@ -1,0 +1,28 @@
+<template>
+  <footer class="mt-16 flex flex-col items-center">
+    <div class="mb-3 flex space-x-4">
+      <div class="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <div>Swaubhik</div>
+        <div>•</div>
+        <div>&copy; {{ new Date().getFullYear() }}</div>
+        <div>•</div>
+        <router-link to="/">VueBlog</router-link>
+      </div>
+      <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
+        <router-link
+          to="https://github.com/timlrx/tailwind-nextjs-starter-blog"
+        >
+          Tailwind Vuejs Starter Blog
+        </router-link>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<script>
+export default {
+  name: "FooterComponent",
+};
+</script>
+
+<style></style>
