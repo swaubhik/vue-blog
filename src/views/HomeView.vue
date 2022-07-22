@@ -43,10 +43,9 @@
                   </h2>
                 </div>
                 <div
+                  v-html="post.content"
                   className="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
-                >
-                  {{ post.content }}
-                </div>
+                ></div>
               </div>
               <div className="text-base font-medium leading-6">
                 <router-link

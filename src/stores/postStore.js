@@ -27,13 +27,26 @@ export const usePostStore = defineStore({
         this.loading = false;
       }
     },
+    // async fetchPost(id) {
+    //   this.post = [];
+    //   this.loading = true;
+    //   try {
+    //     this.post = await axios
+    //       .get(`http://localhost:3000/posts/${id}`)
+    //       .then((response) => response.json());
+    //   } catch (error) {
+    //     this.error = error;
+    //   } finally {
+    //     this.loading = false;
+    //   }
+    // },
     async fetchPost(id) {
       this.post = [];
       this.loading = true;
       try {
-        this.post = await axios
-          .get(`http://localhost:3000/posts${id}`)
-          .then((response) => response.json());
+        this.post = await fetch(`http://localhost:3000/posts/${id}`).then(
+          (response) => response.json()
+        );
       } catch (error) {
         this.error = error;
       } finally {

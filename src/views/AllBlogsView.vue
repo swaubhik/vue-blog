@@ -8,7 +8,7 @@
       </h1>
     </div>
     <ul>
-      <li v-for="post in posts.reverse()" :key="post.id" class="py-4">
+      <li v-for="post in posts.reverse()" :key="post.id" class="py-4 cards">
         <article
           class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
         >
@@ -39,10 +39,9 @@
               </div>
             </div>
             <div
+              v-html="post.content"
               class="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
-            >
-              {{ post.content }}
-            </div>
+            ></div>
           </div>
         </article>
       </li>
@@ -69,4 +68,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.cards {
+  padding: 2rem 4rem;
+  margin: 1rem 0;
+  transition: all 0.5s ease-in-out;
+}
+.cards:hover {
+  border-radius: 50px;
+  background: #171717;
+  box-shadow: -20px 20px 60px #090909, 20px -20px 60px #252525;
+}
+</style>
