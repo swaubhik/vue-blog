@@ -8,7 +8,7 @@
       </h1>
     </div>
     <ul>
-      <li v-for="post in posts" :key="post.id" class="py-4">
+      <li v-for="post in posts.reverse()" :key="post.id" class="py-4">
         <article
           class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
         >
@@ -17,7 +17,9 @@
             <dd
               class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
             >
-              <time :dateTime="post.date">{{ formatDate(post.date) }}</time>
+              <time :dateTime="post.date">{{
+                formatDate(post.createdAt)
+              }}</time>
             </dd>
           </dl>
           <div class="space-y-3 xl:col-span-3">
@@ -25,24 +27,21 @@
               <h3 class="text-2xl font-bold leading-8 tracking-tight">
                 <router-link
                   class="text-gray-900 dark:text-gray-100"
-                  :to="{ name: 'BlogView', params: { blogid: post.id } }"
+                  :to="{ name: 'BlogView', params: { id: post.id } }"
                   >{{ post.title }}</router-link
                 >
               </h3>
               <div class="flex flex-wrap">
-                <router-link
-                  v-for="tags in post.tags"
-                  :key="tags.id"
-                  to="#"
+                <span
                   class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  >{{ tags }}</router-link
+                  >by {{ post.author }}</span
                 >
               </div>
             </div>
             <div
               class="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
             >
-              {{ post.body }}
+              {{ post.content }}
             </div>
           </div>
         </article>
