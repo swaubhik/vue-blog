@@ -17,25 +17,25 @@
         <div className="hidden sm:block">
           <router-link
             :to="{ name: 'Home' }"
-            active-class="text-slate-50"
+            active-class="text-slate-50 font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Home</router-link
           >
           <router-link
             :to="{ name: 'Blogs' }"
-            active-class="text-slate-50"
+            active-class="text-slate-50 font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Blogs</router-link
           >
           <router-link
             :to="{ name: 'Home' }"
-            active-class="text-slate-50"
+            active-class="text-slate-50 font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Create Blogs</router-link
           >
           <router-link
             :to="{ name: 'Home' }"
-            active-class="text-slate-50"
+            active-class="text-slate-50 font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Edit Blogs</router-link
           >
