@@ -11,7 +11,11 @@
       </p>
     </div>
     <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-      <li v-for="post in posts.slice(0, 3)" :key="post.id" className="py-12">
+      <li
+        v-for="post in posts.slice(3).reverse()"
+        :key="post.id"
+        className="py-12"
+      >
         <article>
           <div
             className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
@@ -21,7 +25,9 @@
               <dd
                 className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
               >
-                <time :dateTime="post.date">{{ formatDate(post.date) }}</time>
+                <time :dateTime="post.date">{{
+                  formatDate(post.createdAt)
+                }}</time>
               </dd>
             </dl>
             <div className="space-y-5 xl:col-span-3">
@@ -29,31 +35,22 @@
                 <div>
                   <h2 className="text-2xl font-bold leading-8 tracking-tight">
                     <router-link
-                      to="#"
+                      :to="{ name: 'BlogView', params: { id: post.id } }"
                       className="text-gray-900 dark:text-gray-100"
                     >
                       {{ post.title }}
                     </router-link>
                   </h2>
-                  <div class="flex flex-wrap">
-                    <router-link
-                      v-for="tags in post.tags"
-                      :key="tags.id"
-                      to="#"
-                      class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                      >{{ tags }}</router-link
-                    >
-                  </div>
                 </div>
                 <div
                   className="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
                 >
-                  {{ post.body }}
+                  {{ post.content }}
                 </div>
               </div>
               <div className="text-base font-medium leading-6">
                 <router-link
-                  to="#"
+                  :to="{ name: 'BlogView', params: { id: post.id } }"
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
                   Read more &rarr;
