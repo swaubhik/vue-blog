@@ -35,6 +35,15 @@
                       {{ post.title }}
                     </router-link>
                   </h2>
+                  <div class="flex flex-wrap">
+                    <router-link
+                      v-for="tags in post.tags"
+                      :key="tags.id"
+                      to="#"
+                      class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      >{{ tags }}</router-link
+                    >
+                  </div>
                 </div>
                 <div
                   className="prose max-w-none text-gray-500 dark:text-gray-400"
