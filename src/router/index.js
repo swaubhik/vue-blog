@@ -37,6 +37,11 @@ const router = createRouter({
       name: "AddPost",
       component: () => import("../views/CreatePostView.vue"),
     },
+    {
+      path: "/high",
+      name: "Highlights",
+      component: () => import("../views/HighlightTest.vue"),
+    },
   ],
 });
 
