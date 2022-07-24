@@ -42,7 +42,7 @@
             </div>
             <div
               v-html="post.content"
-              class="prose max-w-none dark:prose-dark h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
+              class="prose prose-headings:text-lg line-clamp-1 max-w-none dark:prose-dark h-24 text-gray-500 dark:text-gray-400"
             ></div>
           </div>
         </article>
