@@ -12,12 +12,14 @@
     </div>
     <ul className="divide-y divide-gray-200 dark:divide-gray-700">
       <li
-        v-for="post in posts.slice(3).reverse()"
+        v-for="post in posts.slice(0, 2).reverse()"
         :key="post.id"
         className="py-12"
       >
         <article>
+          <SkeletonComponent v-if="loading" />
           <div
+            v-else
             className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
           >
             <dl>
@@ -44,8 +46,8 @@
                 </div>
                 <div
                   v-html="post.content"
-                  className="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
-                ></div>
+                  className="prose dark:prose-dark max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
+                ></div><span class="text-xl">...</span>
               </div>
               <div className="text-base font-medium leading-6">
                 <router-link
@@ -74,21 +76,29 @@
 
 <script>
 import formatDate from "@/lib/utils/formatDate";
-
-import { storeToRefs } from "pinia";
 import { usePostStore } from "../stores/postStore";
+import SkeletonComponent from "../components/SkeletonComponent.vue";
 export default {
   setup() {
-    const { posts, loading, error } = storeToRefs(usePostStore());
-    const { fetchPosts } = usePostStore();
-    fetchPosts();
+    const { posts } = usePostStore();
+
     return {
       formatDate,
       posts,
-      loading,
-      error,
     };
   },
+  data() {
+    return {
+      loading: true,
+    };
+  },
+  methods: {},
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 300);
+  },
+  components: { SkeletonComponent },
 };
 </script>
 
