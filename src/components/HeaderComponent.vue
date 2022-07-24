@@ -17,29 +17,30 @@
         <div className="hidden sm:block">
           <router-link
             :to="{ name: 'Home' }"
-            active-class="text-slate-50 !font-bold"
+            active-class="text-gray-900 !font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Home</router-link
           >
           <router-link
             :to="{ name: 'Blogs' }"
-            active-class="text-slate-50 !font-bold"
+            active-class="text-gray-900 !font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Blogs</router-link
           >
           <router-link
             :to="{ name: 'AddPost' }"
-            active-class="text-slate-50 !font-bold"
+            active-class="text-gray-900 !font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
             >Create Blogs</router-link
           >
           <router-link
-            :to="{ name: 'Home' }"
-            active-class="text-slate-50 !font-bold"
+            :to="{ name: 'Highlights' }"
+            active-class="text-gray-900 !font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-            >Edit Blogs</router-link
+            >Highlights</router-link
           >
         </div>
+        <DarkModeComponent />
         <!-- Mobile Nav -->
         <div class="sm:hidden">
           <button
@@ -122,8 +123,9 @@
 
 <script>
 import BrandLogo from "./icons/BrandLogo.vue";
+import DarkModeComponent from "./DarkModeComponent.vue";
 export default {
-  components: { BrandLogo },
+  components: { BrandLogo, DarkModeComponent },
   data() {
     return {
       darkMode: false,
