@@ -39,7 +39,7 @@ const router = createRouter({
     },
     {
       path: "/high",
-      name: "Highlights",
+      name: "HighlightTest",
       component: () => import("../views/HighlightTest.vue"),
     },
   ],
