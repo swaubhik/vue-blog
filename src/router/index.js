@@ -23,9 +23,19 @@ const router = createRouter({
       component: BlogView,
     },
     {
+      path: "/edit/:id",
+      name: "EditBlog",
+      component: () => import("../views/EditView.vue"),
+    },
+    {
+      path: "/highlight",
+      name: "Highlights",
+      component: () => import("../views/HighlightView.vue"),
+    },
+    {
       path: "/addpost",
       name: "AddPost",
-      component: () => import("../views/AddPostView.vue"),
+      component: () => import("../views/CreatePostView.vue"),
     },
   ],
 });
