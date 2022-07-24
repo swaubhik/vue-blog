@@ -35,7 +35,7 @@
             <div className="space-y-5 xl:col-span-3">
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                  <h2 className="text-3xl font-bold leading-8 tracking-tight">
                     <router-link
                       :to="{ name: 'BlogView', params: { id: post.id } }"
                       className="text-gray-900 dark:text-gray-100"
@@ -46,7 +46,7 @@
                 </div>
                 <div
                   v-html="post.content"
-                  className="prose line-clamp-3 dark:prose-dark max-w-4xl h-20 text-gray-500 dark:text-gray-400"
+                  className="prose line-clamp-2 text-ellipsis prose-headings:text-lg dark:prose-dark max-w-none h-28 text-gray-500 dark:text-gray-400"
                 ></div>
               </div>
               <div className="text-base font-medium leading-6">
