@@ -9,7 +9,9 @@
     </div>
     <ul>
       <li v-for="post in posts.reverse()" :key="post.id" class="py-4 cards">
+        <SkeletonComponent v-if="loading" />
         <article
+          v-else
           class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
         >
           <dl>
@@ -17,7 +19,7 @@
             <dd
               class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
             >
-              <time :dateTime="post.date">{{
+              <time :dateTime="post.createdAt">{{
                 formatDate(post.createdAt)
               }}</time>
             </dd>
@@ -40,7 +42,7 @@
             </div>
             <div
               v-html="post.content"
-              class="prose max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
+              class="prose max-w-none dark:prose-dark h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
             ></div>
           </div>
         </article>
@@ -51,32 +53,29 @@
 
 <script>
 import formatDate from "@/lib/utils/formatDate";
-import { storeToRefs } from "pinia";
 import { usePostStore } from "../stores/postStore";
+import SkeletonComponent from "../components/SkeletonComponent.vue";
+
 export default {
+  components: { SkeletonComponent },
   setup() {
-    const { posts, loading, error } = storeToRefs(usePostStore());
-    const { fetchPosts } = usePostStore();
-    fetchPosts();
+    const { posts, fetchAllPosts } = usePostStore();
+
+    fetchAllPosts();
     return {
-      formatDate,
       posts,
-      loading,
-      error,
+      formatDate,
     };
+  },
+  data() {
+    return {
+      loading: true,
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 300);
   },
 };
 </script>
-
-<style scoped>
-.cards {
-  padding: 2rem 4rem;
-  margin: 1rem 0;
-  transition: all 0.5s ease-in-out;
-}
-.cards:hover {
-  border-radius: 50px;
-  background: #171717;
-  box-shadow: -20px 20px 60px #090909, 20px -20px 60px #252525;
-}
-</style>
