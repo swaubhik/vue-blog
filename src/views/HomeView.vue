@@ -46,8 +46,8 @@
                 </div>
                 <div
                   v-html="post.content"
-                  className="prose dark:prose-dark max-w-none h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
-                ></div><span class="text-xl">...</span>
+                  className="prose line-clamp-3 dark:prose-dark max-w-4xl h-20 text-gray-500 dark:text-gray-400"
+                ></div>
               </div>
               <div className="text-base font-medium leading-6">
                 <router-link
