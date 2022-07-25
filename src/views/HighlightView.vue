@@ -10,16 +10,15 @@
       </h1>
     </div>
     <div class="flex max-w-lg flex-wrap">
-      <div class="mt-2 mb-2 mr-5">
-        <a
-          class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-          href="/tags/next-js"
-          >next-js</a
-        ><a
-          class="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
-          href="/tags/next-js"
+      <div v-for="item in highlights" :key="item.id" class="mt-2 mb-2 mr-5">
+        <router-link
+          :to="{ name: 'HighlightContentView', params: { id: item.id } }"
+          class="mr-3 text-sm font-medium text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+          >{{ item.word }}</router-link
+        ><span
+          class="-ml-2 text-sm font-semibold text-gray-600 dark:text-gray-300"
         >
-          (5)</a
+          ({{ item.title }})</span
         >
       </div>
     </div>
@@ -27,14 +26,14 @@
 </template>
 
 <script>
+import { usePostStore } from "@/stores/postStore";
 export default {
-  methods: {
-    highlight(text) {
-      return text.replace(
-        /[a-zA-Z0-9]+/g,
-        "<span class=bg-primary-400>$1</span>"
-      );
-    },
+  setup() {
+    const { highlights, fetchAllHighlights } = usePostStore();
+    fetchAllHighlights();
+    return {
+      highlights,
+    };
   },
 };
 </script>
