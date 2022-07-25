@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <button
       class="bg-primary-500 px-4 py-2 rounded-lg mb-8 text-gray-900"
       @click="highlight"
@@ -22,12 +22,11 @@
 import rangy from "rangy";
 import "rangy/lib/rangy-highlighter";
 import "rangy/lib/rangy-classapplier";
+
 export default {
-  mounted() {},
   methods: {
     highlight() {
       var highlighter;
-
       rangy.init();
       highlighter = rangy.createHighlighter();
       highlighter.addClassApplier(rangy.createClassApplier("highlight"));
@@ -46,7 +45,7 @@ export default {
 
 <style>
 .highlight {
-  background: rgb(5, 91, 97);
+  background: rgb(20, 184, 166);
   color: white;
   font-weight: bold;
 }
