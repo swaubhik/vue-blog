@@ -11,7 +11,7 @@
       </p>
     </div>
     <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-      <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      <PostCard v-for="post in latestPosts" :key="post.id" :post="post" />
     </ul>
   </div>
   <div className="flex justify-end text-base font-medium leading-6">
@@ -31,8 +31,9 @@ import PostCard from "@/components/PostCard.vue";
 export default {
   setup() {
     const { posts } = usePostStore();
+    const latestPosts = posts.slice(0, 2);
     return {
-      posts,
+      latestPosts,
     };
   },
   components: { PostCard },
