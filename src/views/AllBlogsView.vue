@@ -8,7 +8,7 @@
       </h1>
     </div>
     <ul>
-      <li v-for="post in posts.reverse()" :key="post.id" class="py-4 cards">
+      <li v-for="post in posts" :key="post.id" class="py-4 cards">
         <SkeletonComponent v-if="loading" />
         <article
           v-else
@@ -65,8 +65,8 @@ export default {
     fetchAllPosts();
     return {
       formatExcerpt,
-      posts,
       formatDate,
+      posts,
     };
   },
   data() {
