@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import BlogView from "../views/BlogView.vue";
-import HighlightTest from "../views/HighlightTest.vue";
+import HighlightContentView from "../views/HighlightContentView.vue";
+import HighlightView from "../views/HighlightView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,7 +20,7 @@ const router = createRouter({
       component: () => import("../views/AllBlogsView.vue"),
     },
     {
-      path: "/blog/:id",
+      path: "/view-blog/:id",
       name: "BlogView",
       component: BlogView,
     },
@@ -29,9 +30,9 @@ const router = createRouter({
       component: () => import("../views/EditView.vue"),
     },
     {
-      path: "/highlight",
+      path: "/highlights",
       name: "Highlights",
-      component: () => import("../views/HighlightView.vue"),
+      component: HighlightView,
     },
     {
       path: "/addpost",
@@ -39,9 +40,9 @@ const router = createRouter({
       component: () => import("../views/CreatePostView.vue"),
     },
     {
-      path: "/high",
-      name: "HighlightTest",
-      component: HighlightTest,
+      path: "/high-view/:id",
+      name: "HighlightContentView",
+      component: HighlightContentView,
     },
   ],
 });
