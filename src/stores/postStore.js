@@ -66,7 +66,8 @@ export const usePostStore = defineStore({
       });
       localStorage.setItem("posts", JSON.stringify(this.posts));
       router.push({
-        name: "Blogs",
+        name: "BlogView",
+        params: { id: this.posts.length },
       });
     },
     deletePost(id) {
