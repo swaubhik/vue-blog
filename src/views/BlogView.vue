@@ -40,10 +40,92 @@
                 class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
               >
                 <li class="flex items-center space-x-2">
+                  <span
+                    style="
+                      box-sizing: border-box;
+                      display: inline-block;
+                      overflow: hidden;
+                      width: initial;
+                      height: initial;
+                      background: none;
+                      opacity: 1;
+                      border: 0;
+                      margin: 0;
+                      padding: 0;
+                      position: relative;
+                      max-width: 100%;
+                    "
+                    ><span
+                      style="
+                        box-sizing: border-box;
+                        display: block;
+                        width: initial;
+                        height: initial;
+                        background: none;
+                        opacity: 1;
+                        border: 0;
+                        margin: 0;
+                        padding: 0;
+                        max-width: 100%;
+                      "
+                      ><img
+                        style="
+                          display: block;
+                          max-width: 100%;
+                          width: initial;
+                          height: initial;
+                          background: none;
+                          opacity: 1;
+                          border: 0;
+                          margin: 0;
+                          padding: 0;
+                        "
+                        alt=""
+                        aria-hidden="true"
+                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e" /></span
+                    ><img
+                      alt="avatar"
+                      src="https://avatars.githubusercontent.com/u/71642879?v=4"
+                      decoding="async"
+                      data-nimg="intrinsic"
+                      class="h-10 w-10 rounded-full"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        box-sizing: border-box;
+                        padding: 0;
+                        border: none;
+                        margin: auto;
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        min-width: 100%;
+                        max-width: 100%;
+                        min-height: 100%;
+                        max-height: 100%;
+                      "
+                      srcset="
+                        https://avatars.githubusercontent.com/u/71642879?s=40&v=4 1x,
+                        https://avatars.githubusercontent.com/u/71642879?v=4      2x
+                      " /><noscript></noscript
+                  ></span>
                   <dl class="whitespace-nowrap text-sm font-medium leading-5">
                     <dt class="sr-only">Name</dt>
                     <dd class="text-gray-900 dark:text-gray-100">
                       {{ post.author }}
+                    </dd>
+                    <dt class="sr-only">Github</dt>
+                    <dd>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://github.com/swaubhik"
+                        class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        >👨‍💻 Github</a
+                      >
                     </dd>
                   </dl>
                 </li>
@@ -99,6 +181,7 @@
               v-html="formatedHTML"
               class="prose max-w-none pt-10 pb-8 dark:prose-dark"
             ></div>
+            <HighlightComponent @add-highlight="highlight" />
           </div>
           <footer>
             <div class="pt-4 xl:pt-8">
@@ -128,16 +211,20 @@ import formatDate from "@/lib/utils/formatDate";
 import { storeToRefs } from "pinia";
 import { usePostStore } from "@/stores/postStore";
 import { useRoute } from "vue-router";
-// import Post from "@/components/Post.vue";
+
+import HighlightComponent from "@/components/HighlightComponent.vue";
 
 export default {
   setup() {
+    const { addHighlight } = usePostStore();
     const { post } = storeToRefs(usePostStore());
+    // const { posts } = usePostStore();
     const { fetchPost } = usePostStore();
     fetchPost(useRoute().params.id);
     return {
       formatDate,
       post,
+      addHighlight,
     };
   },
   data() {
@@ -151,15 +238,14 @@ export default {
       const regexp = new RegExp(this.search, "ig");
       const highlights = this.source.replace(
         regexp,
-        "<strong style='background-color:#14b8a6'>$&</strong>"
+        "<mark class='highlight'>$&</mark>"
       );
-      return `<span class="highlightText">${highlights}</span>`;
+      return `<mark class="highlightText">${highlights}</mark>`;
     },
     highlights() {
       const results = [];
       if (this.search && this.search.length > 0) {
         const regexp = new RegExp(this.search, "ig");
-
         let start = 0;
         for (let match of this.source.matchAll(regexp)) {
           results.push({
@@ -173,20 +259,27 @@ export default {
           });
           start += this.search.length;
         }
-
         if (start < this.source.length)
           results.push({ text: this.source.substring(start), match: false });
       }
-
       if (results.length === 0) {
         results.push({
           text: this.source,
           match: false,
         });
       }
-
       return results;
     },
   },
+  methods: {
+    highlight(content) {
+      this.addHighlight({
+        ...content,
+        postId: this.post.id,
+        title: this.post.title,
+      });
+    },
+  },
+  components: { HighlightComponent },
 };
 </script>
