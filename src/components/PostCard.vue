@@ -29,7 +29,7 @@
             <div
               className="prose dark:prose-dark max-w-4xl text-gray-500 dark:text-gray-400"
             >
-              {{ exerptTrim }}
+              {{ formatExcerpt(post.excerpt) }}
             </div>
           </div>
           <div className="text-base font-medium leading-6">
@@ -49,6 +49,7 @@
 <script>
 import formatDate from "@/lib/utils/formatDate";
 import SkeletonComponent from "./SkeletonComponent.vue";
+import formatExcerpt from "@/lib/utils/formatExcerpt";
 export default {
   components: { SkeletonComponent },
   props: {
@@ -56,6 +57,7 @@ export default {
   },
   setup() {
     return {
+      formatExcerpt,
       formatDate,
     };
   },
@@ -63,11 +65,6 @@ export default {
     return {
       loading: true,
     };
-  },
-  computed: {
-    exerptTrim() {
-      return this.post.excerpt.substring(0, 180) + "...";
-    },
   },
   mounted() {
     setTimeout(() => {
