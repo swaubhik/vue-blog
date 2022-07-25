@@ -46,7 +46,7 @@
           <button
             type="button"
             class="ml-1 mr-1 h-8 w-8 rounded py-1"
-            aria-label="Toggle Menu"
+            @click="mobileNav = !mobileNav"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,13 +62,14 @@
             </svg>
           </button>
           <div
-            class="fixed top-0 left-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 translate-x-full"
+            :class="mobileNav ? 'translate-x-0' : 'translate-x-full'"
+            class="fixed top-0 left-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800"
           >
             <div class="flex justify-end">
               <button
                 type="button"
                 class="mr-5 mt-11 h-8 w-8 rounded"
-                aria-label="Toggle Menu"
+                @click="mobileNav = !mobileNav"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,35 +129,8 @@ export default {
   components: { BrandLogo, DarkModeComponent },
   data() {
     return {
-      darkMode: false,
+      mobileNav: false,
     };
-  },
-  methods: {
-    dark() {
-      document.querySelector("body").classList.add("dark-mode");
-      this.darkMode = true;
-      this.$emit("dark");
-    },
-    light() {
-      document.querySelector("body").classList.remove("dark-mode");
-      this.darkMode = false;
-      this.$emit("light");
-    },
-    modeToggle() {
-      if (
-        this.darkMode ||
-        document.querySelector("body").classList.contains("dark-mode")
-      ) {
-        this.light();
-      } else {
-        this.dark();
-      }
-    },
-  },
-  computed: {
-    darkDark() {
-      return this.darkMode && "darkmode-toggled";
-    },
   },
 };
 </script>
