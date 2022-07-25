@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
+.highlight {
+    background: rgb(20, 184, 166);
+    @apply text-gray-900 dark:text-gray-100 ;
+    font-weight: bold;
+    padding: 0 0.2rem;
+}
 @tailwind utilities;
 @layer base {
     html {
