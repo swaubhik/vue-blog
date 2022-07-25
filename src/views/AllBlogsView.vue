@@ -8,7 +8,7 @@
       </h1>
     </div>
     <ul>
-      <li v-for="post in posts" :key="post.id" class="py-4 cards">
+      <li v-for="post in latestPosts" :key="post.id" class="py-4 cards">
         <SkeletonComponent v-if="loading" />
         <article
           v-else
@@ -61,12 +61,12 @@ import SkeletonComponent from "../components/SkeletonComponent.vue";
 export default {
   components: { SkeletonComponent },
   setup() {
-    const { posts, fetchAllPosts } = usePostStore();
-    fetchAllPosts();
+    const { posts } = usePostStore();
+    const latestPosts = posts;
     return {
       formatExcerpt,
       formatDate,
-      posts,
+      latestPosts,
     };
   },
   data() {
