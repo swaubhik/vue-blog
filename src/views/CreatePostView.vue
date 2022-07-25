@@ -53,7 +53,7 @@
         </h2>
         <QuillEditor
           v-model:content="content"
-          contentType="text"
+          contentType="html"
           theme="snow"
           placeholder="Write your post here"
           toolbar="full"
