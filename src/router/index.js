@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import BlogView from "../views/BlogView.vue";
+import HighlightTest from "../views/HighlightTest.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -40,7 +41,7 @@ const router = createRouter({
     {
       path: "/high",
       name: "HighlightTest",
-      component: () => import("../views/HighlightTest.vue"),
+      component: HighlightTest,
     },
   ],
 });

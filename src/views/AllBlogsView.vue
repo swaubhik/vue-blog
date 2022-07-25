@@ -8,7 +8,7 @@
       </h1>
     </div>
     <ul>
-      <li v-for="post in posts.reverse()" :key="post.id" class="py-4 cards">
+      <li v-for="post in posts" :key="post.id" class="py-4 cards">
         <SkeletonComponent v-if="loading" />
         <article
           v-else
@@ -41,9 +41,10 @@
               </div>
             </div>
             <div
-              v-html="post.content"
-              class="prose prose-headings:text-lg line-clamp-1 max-w-none dark:prose-dark h-24 text-gray-500 dark:text-gray-400"
-            ></div>
+              class="prose prose-headings:text-lg line-clamp-3 max-w-none dark:prose-dark h-20 overflow-hidden text-ellipsis text-gray-500 dark:text-gray-400"
+            >
+              {{ formatExcerpt(post.excerpt) }}
+            </div>
           </div>
         </article>
       </li>
@@ -53,6 +54,7 @@
 
 <script>
 import formatDate from "@/lib/utils/formatDate";
+import formatExcerpt from "@/lib/utils/formatExcerpt";
 import { usePostStore } from "../stores/postStore";
 import SkeletonComponent from "../components/SkeletonComponent.vue";
 
@@ -60,11 +62,11 @@ export default {
   components: { SkeletonComponent },
   setup() {
     const { posts, fetchAllPosts } = usePostStore();
-
     fetchAllPosts();
     return {
-      posts,
+      formatExcerpt,
       formatDate,
+      posts,
     };
   },
   data() {
