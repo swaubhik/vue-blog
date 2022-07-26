@@ -63,7 +63,7 @@
         @click="createPost"
         class="px-4 py-2 bg-primary-400 text-gray-800 font-semibold text-lg rounded-lg hover:bg-primary-500 float-right"
       >
-        Publish
+        Create Post
       </button>
     </div>
   </div>
