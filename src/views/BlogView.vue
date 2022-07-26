@@ -158,19 +158,6 @@
           <div
             class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
           >
-            <!-- <div>
-              Safe:
-              <span>
-                <template v-for="result in highlights" :key="result">
-                  <template v-if="result.match"
-                    ><strong class="bg-primary-500">{{
-                      result.text
-                    }}</strong></template
-                  >
-                  <template v-else>{{ result.text }}</template>
-                </template>
-              </span>
-            </div> -->
             <div
               v-if="search == ''"
               v-html="post.content"
