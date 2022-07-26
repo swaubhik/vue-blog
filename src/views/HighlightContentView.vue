@@ -40,8 +40,8 @@
             <li class="flex items-center space-x-2">
               <dl class="whitespace-nowrap text-sm font-medium leading-5">
                 <dt class="sr-only">Highlighted Word</dt>
-                <dd class="text-gray-900 dark:text-gray-100">
-                  {{ highlight.word }}
+                <dd class="text-gray-900 font-bold text-xl dark:text-gray-100">
+                  Keyword: {{ highlight.word }}
                 </dd>
               </dl>
             </li>
