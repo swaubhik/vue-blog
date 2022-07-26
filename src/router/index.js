@@ -45,6 +45,9 @@ const router = createRouter({
       component: HighlightContentView,
     },
   ],
+  scrollBehavior() {
+    document.getElementById("app").scrollIntoView();
+  },
 });
 
 export default router;
