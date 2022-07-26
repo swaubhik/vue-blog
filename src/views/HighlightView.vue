@@ -27,10 +27,10 @@
 
 <script>
 import { usePostStore } from "@/stores/postStore";
+
 export default {
   setup() {
-    const { highlights, fetchAllHighlights } = usePostStore();
-    fetchAllHighlights();
+    const { highlights } = usePostStore();
     return {
       highlights,
     };
