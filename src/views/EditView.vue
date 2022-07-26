@@ -1,91 +1,129 @@
 <template>
-  <div>
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-      <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-100">Add post</h3>
+  <div className="divide-y divide-gray-200 dark:divide-gray-700">
+    <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+      <h1
+        className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+      >
+        Edit post
+      </h1>
+    </div>
+    <div class="pt-10">
+      <div class="relative z-0 mb-6 w-full group">
+        <input
+          v-model="post.title"
+          type="text"
+          class="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary-500 focus:outline-none focus:ring-0 focus:border-primary-600 peer"
+          placeholder=" "
+          required
+        />
+        <label
+          class="peer-focus:font-semibold absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-600 peer-focus:dark:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Title</label
+        >
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <input
+          v-model="post.author"
+          type="text"
+          class="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary-500 focus:outline-none focus:ring-0 focus:border-primary-600 peer"
+          placeholder=" "
+          required
+        />
+        <label
+          class="peer-focus:font-semibold absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-600 peer-focus:dark:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Author</label
+        >
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <textarea
+          v-model="post.excerpt"
+          type="text"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-primary-500 focus:outline-none focus:ring-0 focus:border-primary-600 peer"
+          placeholder=" "
+          required
+          rows="3"
+        />
+        <label
+          class="peer-focus:font-semibold absolute text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary-600 peer-focus:dark:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+          >Excerpt</label
+        >
+      </div>
+      <div class="relative mb-6 w-full group">
+        <h2 class="text-gray-500 dark:text-gray-400 font-semibold text-lg mb-2">
+          Content
+        </h2>
+        <div class="bg-gray-200 text-gray-900">
+          <QuillEditor
+            v-model:content="post.content"
+            contentType="html"
+            theme="snow"
+            placeholder="Write your post here"
+            toolbar="full"
+          />
         </div>
       </div>
-      <div class="mt-5 md:mt-0 md:col-span-2">
-        <div class="shadow sm:rounded-md sm:overflow-hidden">
-          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
-                <label
-                  for="title"
-                  class="block text-sm font-medium text-gray-700"
-                >
-                  Title
-                </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <input
-                    v-model="currentPost.title"
-                    type="text"
-                    name="title"
-                    id="title"
-                    class="focus:ring-cyan-500 text-gray-800 focus:border-cyan-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                    placeholder="Post Title"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="grid grid-cols-3 gap-6">
-              <div class="col-span-3 sm:col-span-2">
-                <label
-                  for="author"
-                  class="block text-sm font-medium text-gray-700"
-                >
-                  Author
-                </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <input
-                    v-model="currentPost.author"
-                    type="text"
-                    name="author"
-                    id="author"
-                    class="focus:ring-cyan-500 text-gray-800 focus:border-cyan-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                    placeholder="Author name"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label
-                for="about"
-                class="block text-sm font-medium text-gray-700"
-              >
-                Content
-              </label>
-              <div class="mt-1">
-                <textarea
-                  v-model="currentPost.content"
-                  id="about"
-                  name="about"
-                  rows="5"
-                  class="shadow-sm focus:ring-cyan-500 text-gray-800 focus:border-cyan-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                  placeholder="Lorem ipsum"
-                />
-              </div>
-              <p class="mt-2 text-sm text-gray-500">
-                Brief description for your blog.
-              </p>
-            </div>
-          </div>
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button
-              @click="editPost"
-              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-            >
-              Save
-            </button>
-          </div>
-        </div>
+      <div class="flex flex-wrap justify-between">
+        <button
+          @click="editPost"
+          class="px-4 py-2 bg-primary-400 text-gray-800 font-semibold text-lg rounded-lg hover:bg-primary-500 float-right"
+        >
+          Update Post
+        </button>
+        <button
+          @click="deletePost"
+          class="px-4 py-2 bg-red-400 text-gray-800 font-semibold text-lg rounded-lg hover:bg-red-500 float-right"
+        >
+          Delete Post
+        </button>
       </div>
     </div>
   </div>
 </template>
 
-<script></script>
-
-<style></style>
+<script>
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import { usePostStore } from "@/stores/postStore";
+import { useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
+export default {
+  components: {
+    QuillEditor,
+  },
+  setup() {
+    const id = useRoute().params.id;
+    const { post } = storeToRefs(usePostStore());
+    const { fetchPost } = usePostStore();
+    const postStore = usePostStore();
+    fetchPost(id);
+    return {
+      post,
+      postStore,
+    };
+  },
+  data() {
+    return {
+      date: "",
+    };
+  },
+  methods: {
+    editPost() {
+      this.postStore.editPost({
+        id: this.post.id,
+        createdAt: this.date,
+        author: this.date,
+        content: this.content,
+        title: this.title,
+        excerpt: this.excerpt,
+      });
+    },
+    newDate() {
+      this.date = new Date().toISOString();
+    },
+    deletePost() {
+      console.log(this.post.id);
+      this.postStore.deletePost(this.post.id);
+    },
+  },
+};
+</script>

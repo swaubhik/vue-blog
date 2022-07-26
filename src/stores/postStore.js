@@ -31,6 +31,12 @@ export const usePostStore = defineStore({
         return this.highlight;
       };
     },
+    getPost(state) {
+      return (id) => {
+        this.post = state.posts.find((post) => post.id === id);
+        return this.post;
+      };
+    },
   },
   actions: {
     createPost(post) {
@@ -56,7 +62,15 @@ export const usePostStore = defineStore({
       saveToLocalStorage("highlights", this.highlights);
     },
     deletePost(id) {
-      this.posts = this.posts.filter((post) => post.id !== id);
+      const index = this.posts.findIndex((post) => post.id === id);
+      this.posts.splice(index, 1);
+      console.log("deleted post" + id);
+      saveToLocalStorage("posts", this.posts);
+      router.push({ name: "Blogs" });
+    },
+    editPost(id, post) {
+      this.posts = this.posts.map((p) => (p.id === id ? post : p));
+      console.log(this.posts);
       saveToLocalStorage("posts", this.posts);
     },
   },
