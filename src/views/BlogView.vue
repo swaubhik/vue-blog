@@ -216,11 +216,11 @@ import HighlightComponent from "@/components/HighlightComponent.vue";
 
 export default {
   setup() {
+    const id = useRoute().params.id;
     const { addHighlight } = usePostStore();
     const { post } = storeToRefs(usePostStore());
-    // const { posts } = usePostStore();
     const { fetchPost } = usePostStore();
-    fetchPost(useRoute().params.id);
+    fetchPost(id);
     return {
       formatDate,
       post,
