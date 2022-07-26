@@ -31,7 +31,7 @@
             :to="{ name: 'AddPost' }"
             active-class="text-gray-900 !font-bold"
             class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-            >Create Blogs</router-link
+            >Create Post</router-link
           >
           <router-link
             :to="{ name: 'Highlights' }"
@@ -110,8 +110,8 @@
               <div class="px-12 py-4">
                 <router-link
                   class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                  :to="{ name: 'Home' }"
-                  >About</router-link
+                  :to="{ name: 'Highlights' }"
+                  >Highlights</router-link
                 >
               </div>
             </nav>
