@@ -70,8 +70,8 @@ export const usePostStore = defineStore({
     },
     editPost(id, post) {
       this.posts = this.posts.map((p) => (p.id === id ? post : p));
-      console.log(this.posts);
       saveToLocalStorage("posts", this.posts);
+      router.push({ name: "Home" });
     },
   },
 });
