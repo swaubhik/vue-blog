@@ -45,9 +45,6 @@ export const usePostStore = defineStore({
         params: { id: this.posts.length },
       });
     },
-    deletePost(id) {
-      this.posts = this.posts.filter((post) => post.id !== id);
-    },
     fetchPost(id) {
       this.post = this.posts.find((post) => post.id == id);
     },
@@ -57,6 +54,10 @@ export const usePostStore = defineStore({
         ...highlight,
       });
       saveToLocalStorage("highlights", this.highlights);
+    },
+    deletePost(id) {
+      this.posts = this.posts.filter((post) => post.id !== id);
+      saveToLocalStorage("posts", this.posts);
     },
   },
 });
