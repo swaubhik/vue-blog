@@ -2,7 +2,7 @@
 @tailwind base;
 @tailwind components;
 .highlight {
-    background: rgb(20, 184, 166);
+    background: rgba(20, 184, 165, 0.533);
     @apply text-gray-900 dark:text-gray-100 ;
     font-weight: bold;
     padding: 0 0.2rem;
