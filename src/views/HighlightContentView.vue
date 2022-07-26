@@ -55,6 +55,15 @@
           <p v-html="highlight.paragraph"></p>
         </div>
       </div>
+      <footer>
+        <div class="pt-4 xl:pt-8">
+          <router-link
+            class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            :to="{ name: 'Highlights' }"
+            >← Back to Highlights</router-link
+          >
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -62,13 +71,11 @@
 <script>
 import { usePostStore } from "@/stores/postStore";
 import { useRoute } from "vue-router";
-import { storeToRefs } from "pinia";
 
 export default {
   setup() {
-    const { highlight } = storeToRefs(usePostStore());
-    const { fetchHighlight } = usePostStore();
-    fetchHighlight(useRoute().params.id);
+    const highLight = usePostStore();
+    const highlight = highLight.getHighlight(useRoute().params.id);
     return {
       highlight,
     };
