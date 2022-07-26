@@ -56,7 +56,6 @@ export default {
       this.y = y + window.scrollY - 10;
       this.showTools = true;
       this.selectedText = selection.toString();
-      // console.log(this.selectedText);
       this.selectedNode = selection;
     },
 
@@ -64,11 +63,7 @@ export default {
       const sel = this.selectedNode;
       if (sel && sel.rangeCount) {
         const range = sel.getRangeAt(0);
-        //take Id of nearest parent element having an Id
         var parentElement = range.startContainer.parentElement;
-        // while (!parentElement.id) {
-        //   parentElement = parentElement.parentElement;
-        // }
         var highlighter;
         rangy.init();
         highlighter = rangy.createHighlighter();
@@ -83,15 +78,12 @@ export default {
         let string = rangy.getSelection().toString();
         if (alphaNumeric.test(string)) {
           highlighter.highlightSelection("highlight");
-          // var selTxt = rangy.getSelection();
-          // console.log("selTxt: " + selTxt);
           rangy.getSelection().removeAllRanges();
         }
         this.$emit("add-highlight", {
           word: this.selectedText.toLowerCase(),
           paragraph: parentElement.outerHTML,
         });
-        // console.log(parentElement.outerHTML);
       }
     },
   },
