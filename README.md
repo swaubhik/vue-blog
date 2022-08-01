@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4deccabc-3c77-4f15-83a5-afc4e35ea63a/deploy-status)](https://app.netlify.com/sites/swaubhik-sensehawk-assignment/deploys)
 # vue-blog
 
 This template should help get you started developing with Vue 3 in Vite.
