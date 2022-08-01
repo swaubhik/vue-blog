@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
-      <a target="_blank" href="#"> Tailwind Vuejs Starter Blog </a>
+      <a target="_blank" href="https://github.com/swaubhik/vue-blog/"> Tailwind Vuejs Starter Blog </a>
     </div>
   </footer>
 </template>
