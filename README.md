@@ -1,36 +1,64 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4deccabc-3c77-4f15-83a5-afc4e35ea63a/deploy-status)](https://app.netlify.com/sites/swaubhik-sensehawk-assignment/deploys)
-# vue-blog
 
-This template should help get you started developing with Vue 3 in Vite.
+![Logo](.github\asssets\swaubhik-sensehawk-assignment.netlify.app__8_.svg)
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+# Vue Blog
 
-## Customize configuration
+A simple blog application using Vue.js and Netlify with medium like highlighting feature. This was crated as a part of the [SenseHawk's](https://sensehawk.com/) assignment.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Demo
+
+[swaubhik-sensehawk-assignment](https://swaubhik-sensehawk-assignment.netlify.app/)
+
+## Screenshots
+
+![App Screenshot](.github\asssets\swaubhik-sensehawk-assignment.netlify.app_.png)
+
+![App Screenshot](.github\asssets\swaubhik-sensehawk-assignment.netlify.app_(2).png)
+
+![App Screenshot](.github\asssets\swaubhik-sensehawk-assignment.netlify.app_(3).png)
+
+![App Screenshot](.github\asssets\swaubhik-sensehawk-assignment.netlify.app_(5).png)
+
+![App Screenshot](.github\asssets\swaubhik-sensehawk-assignment.netlify.app_(6).png)
+
+## Tech Stack
+
+**Client:** Vue3, Pinia, TailwindCSS
+
+**Server:** Node
+
+
+## Run Locally
+
+Clone the project
 
 ```sh
-npm install
+  git clone https://github.com/swaubhik/vue-blog.git
 ```
 
-### Compile and Hot-Reload for Development
+Go to the project directory
 
 ```sh
-npm run dev
+  cd vue-blog
 ```
 
-### Compile and Minify for Production
+Install dependencies
 
 ```sh
-npm run build
+  yarn install or npm install
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Start the development server
 
-```sh
-npm run lint
+```bash
+  yarn dev or npm run dev
 ```
+
+
+## License
+
+[MIT](./LICENSE)
+
