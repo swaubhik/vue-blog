@@ -20,7 +20,7 @@ A simple blog application using Vue.js and Netlify with medium like highlighting
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1800" alt="app-screenshot" src="./.github/asssets/1.png">  Home |  <img width="1800" alt="app-screenshot" src="./.github/asssets/2.png">Blog|<img width="1800" alt="app-screenshot" src="./.github/asssets/3.png">|
+|<img width="1800" alt="app-screenshot" src="./.github/asssets/1.png">  Home |  <img width="1800" alt="app-screenshot" src="./.github/asssets/2.png">Blog|<img width="1800" alt="app-screenshot" src="./.github/asssets/3.png">Create Post|
 |<img width="1800" alt="app-screenshot" src="./.github/asssets/4.png">Highlighting|  <img width="1800" alt="app-screenshot" src="./.github/asssets/5.png">Blog Preview|<img width="1800" alt="app-screenshot" src="./.github/asssets/6.png">Edit post|
 |<img width="1800" alt="app-screenshot" src="./.github/asssets/1_1.png"> Light Mode| 
 ## Tech Stack
