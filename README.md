@@ -9,7 +9,7 @@
 
 # Vue Blog
 
-A simple blog application using Vue.js and Netlify with medium like highlighting feature. This was crated as a part of the [SenseHawk's](https://sensehawk.com/) assignment.
+A simple blog application using Vue.js and Netlify with medium like highlighting feature. This was a recreation of [Tailwind Nextjs Starter Blog](https://tailwind-nextjs-starter-blog.vercel.app/) using VueJS
 
 
 ## Demo
