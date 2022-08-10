@@ -14,7 +14,7 @@ A simple blog application using Vue.js and Netlify with medium like highlighting
 
 ## Demo
 
-[swaubhik-sensehawk-assignment](https://swaubhik-sensehawk-assignment.netlify.app/)
+[vue-blog](https://swaubhik-vue-blog.netlify.app/)
 
 ## Screenshots
 
